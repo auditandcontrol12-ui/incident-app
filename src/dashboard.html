@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Incident Reporting Portal</title>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="top-hero">
+      <div>
+        <span class="hero-badge">Incident Operations</span>
+        <h1>Incident Dashboard</h1>
+        <div class="page-subtitle">
+          Create incidents, review submitted records, manage pending actions, run reports, and administer system masters.
+        </div>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <div class="card">
+        <div class="section-title">User Summary</div>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <div class="label">User Name</div>
+            <div class="value" id="userName"></div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Email</div>
+            <div class="value" id="userEmail"></div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Role</div>
+            <div class="value" id="userRole"></div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Holding</div>
+            <div class="value" id="holdingName"></div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Selected Area</div>
+            <div class="value" id="selectedArea">None</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="card soft workspace-card">
+          <div class="workspace-kicker">Business Scope</div>
+          <div class="section-title">Business Area</div>
+          <div class="workspace-text">
+            Select the area in which the incident occurred or will be managed.
+          </div>
+          <div class="top-actions" id="businessAreaButtons"></div>
+        </div>
+
+        <div class="card soft workspace-card">
+          <div class="workspace-kicker">Incident Intake</div>
+          <div class="section-title">Create Report</div>
+          <div class="workspace-text">
+            Record a new incident, safety event, control exception, or operational issue for the selected business area.
+          </div>
+          <div class="top-actions">
+            <button id="createIncidentBtn">Create Incident Report</button>
+            <!-- <button id="createObservationBtn" class="secondary">Create Observation</button> -->
+          </div>
+        </div>
+
+        <div class="card soft workspace-card">
+          <div class="workspace-kicker">Workbench</div>
+          <div class="section-title">Incident Workbench</div>
+          <div class="workspace-text">
+            Review submitted reports, manage pending actions assigned to you, and for managers, view team reports.
+          </div>
+          <div class="top-actions">
+            <button id="myReportsBtn" class="success">My Reports</button>
+            <button id="pendingActionsBtn">Pending Actions</button>
+            <button id="teamReportsBtn" style="display:none;">Team Reports</button>
+          </div>
+        </div>
+
+        <div class="card soft workspace-card">
+          <div class="workspace-kicker">Reporting</div>
+          <div class="section-title">Reports and Analysis</div>
+          <div class="workspace-text">
+            Run filtered incident reports between dates and export the result to PDF.
+          </div>
+          <div class="top-actions">
+            <button id="reportsBtn">Open Reports</button>
+          </div>
+        </div>
+
+        <div class="card soft workspace-card">
+          <div class="workspace-kicker">Administration</div>
+          <div class="section-title">System Access</div>
+          <div class="workspace-text">
+            Manage users, incident masters, and department-user mappings where permitted.
+          </div>
+          <div class="top-actions">
+            <button id="systemAccessBtn" style="display:none;">System Access</button>
+            <button id="incidentMastersBtn" style="display:none;">Incident Masters</button>
+            <button id="departmentUserMappingBtn" style="display:none;">Department User Mapping</button>
+          </div>
+        </div>
+
+        <div class="card soft workspace-card">
+          <div class="workspace-kicker">Session</div>
+          <div class="section-title">Sign Out</div>
+          <div class="workspace-text">
+            End the current session securely when your work is complete.
+          </div>
+          <div class="top-actions">
+            <button id="logoutBtn" class="secondary">Logout</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card">
+          <div class="page-loader-spinner"></div>
+          <div id="pageLoaderText" class="page-loader-text">Loading dashboard...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/core/app.js"></script>
+  <script src="/js/core/auth.js"></script>
+  <script src="/js/pages/dashboard-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Reports - Incident Reporting Portal</title>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="top-hero">
+      <div>
+        <span class="hero-badge">Incident Workbench</span>
+        <h1>My Reports</h1>
+        <div class="page-subtitle">
+          Review submitted incidents and observations created by you.
+        </div>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <div class="card">
+        <div class="section-title">Filters</div>
+        <div class="form-grid">
+          <div class="field-block">
+            <label for="filterType">Report Type</label>
+            <select id="filterType">
+              <option value="">All</option>
+            </select>
+          </div>
+
+          <div class="field-block">
+            <label for="filterStatus">Status</label>
+            <select id="filterStatus">
+              <option value="">All</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button id="applyFiltersBtn">Apply Filters</button>
+          <button id="clearFiltersBtn" class="secondary">Clear Filters</button>
+          <button id="backToDashboardBtn" class="secondary">Back to Dashboard</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">My Submitted Reports</div>
+        <div class="lines-table-wrap">
+          <table class="lines-table">
+            <thead>
+              <tr>
+                <th>Incident No</th>
+                <th>Type</th>
+                <th>Business Area</th>
+                <th>Title</th>
+                <th>Level</th>
+                <th>Status</th>
+                <th>Incident Date Time</th>
+                <th>Created On</th>
+                <th>Open</th>
+              </tr>
+            </thead>
+            <tbody id="reportsTableBody">
+              <tr>
+                <td colspan="9">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card">
+          <div class="page-loader-spinner"></div>
+          <div id="pageLoaderText" class="page-loader-text">Loading reports...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/core/app.js"></script>
+  <script src="/js/core/auth.js"></script>
+  <script src="/js/pages/my-reports.js"></script>
+</body>
+
+</html>

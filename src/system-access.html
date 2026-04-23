@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Access - Incident Reporting Portal</title>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="top-hero">
+      <div>
+        <span class="hero-badge">Administration</span>
+        <h1>System Access</h1>
+        <div class="page-subtitle">
+          Create users, manage application access, and assign business areas for this application.
+        </div>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <div class="card">
+        <div class="section-title">Create / Edit User</div>
+
+        <div class="form-grid">
+          <div class="field-block">
+            <label for="userEmail">User Email</label>
+            <input type="email" id="userEmail" maxlength="1020" placeholder="user@company.com" />
+          </div>
+
+          <div class="field-block">
+            <label for="userName">User Name</label>
+            <input type="text" id="userName" maxlength="300" placeholder="Full name" />
+          </div>
+
+          <div class="field-block">
+            <label for="holdingName">Holding Name</label>
+            <input type="text" id="holdingName" maxlength="300" placeholder="Holding name" />
+          </div>
+
+          <div class="field-block">
+            <label for="appRole">App Role</label>
+            <input type="text" id="appRole" maxlength="200" placeholder="Standard User" />
+          </div>
+
+          <div class="field-block">
+            <label class="inline-check">
+              <input type="checkbox" id="isActive" checked />
+              Active User
+            </label>
+          </div>
+
+          <div class="field-block">
+            <label class="inline-check">
+              <input type="checkbox" id="isManager" />
+              Manager
+            </label>
+          </div>
+
+          <div class="field-block">
+            <label class="inline-check">
+              <input type="checkbox" id="isSuperUser" />
+              Super User
+            </label>
+          </div>
+
+          <div class="field-block" style="grid-column: 1 / -1;">
+            <label>Business Area Access</label>
+            <div id="businessAreaChecklist" class="checkbox-grid"></div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button id="saveUserBtn">Save User</button>
+          <button id="clearFormBtn" class="secondary">Clear</button>
+          <button id="backToDashboardBtn" class="secondary">Back to Dashboard</button>
+        </div>
+
+        <p id="formMessage" class="form-message"></p>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Users</div>
+        <div class="lines-table-wrap">
+          <table class="lines-table">
+            <thead>
+              <tr>
+                <th>User ID</th>
+                <th>Email</th>
+                <th>User Name</th>
+                <th>Holding</th>
+                <th>Role</th>
+                <th>Active</th>
+                <th>Manager</th>
+                <th>Super User</th>
+                <th>Business Areas</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              <tr>
+                <td colspan="10">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card">
+          <div class="page-loader-spinner"></div>
+          <div id="pageLoaderText" class="page-loader-text">Loading system access...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/core/app.js"></script>
+  <script src="/js/core/auth.js"></script>
+  <script src="/js/pages/system-access.js"></script>
+</body>
+</html>

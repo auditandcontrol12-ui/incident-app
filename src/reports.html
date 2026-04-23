@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports and Analysis - Incident Reporting Portal</title>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="top-hero">
+      <div>
+        <span class="hero-badge">Reporting</span>
+        <h1>Reports and Analysis</h1>
+        <div class="page-subtitle">
+          Review submitted incidents between dates, apply filters, open details, and export the result to PDF.
+        </div>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <div class="card">
+        <div class="section-title">Filters</div>
+        <div class="form-grid">
+          <div class="field-block">
+            <label for="filterDateFrom">Date From</label>
+            <input type="date" id="filterDateFrom" />
+          </div>
+
+          <div class="field-block">
+            <label for="filterDateTo">Date To</label>
+            <input type="date" id="filterDateTo" />
+          </div>
+
+          <div class="field-block">
+            <label for="filterBusinessArea">Business Area</label>
+            <select id="filterBusinessArea">
+              <option value="">All</option>
+            </select>
+          </div>
+
+          <div class="field-block">
+            <label for="filterType">Incident Type</label>
+            <select id="filterType">
+              <option value="">All</option>
+            </select>
+          </div>
+
+          <div class="field-block">
+            <label for="filterStatus">Status</label>
+            <select id="filterStatus">
+              <option value="">All</option>
+            </select>
+          </div>
+
+          <div class="field-block">
+            <label for="filterLevel">Level of Incident</label>
+            <select id="filterLevel">
+              <option value="">All</option>
+            </select>
+          </div>
+
+          <div class="field-block">
+            <label for="filterNature">Nature of Incident</label>
+            <select id="filterNature">
+              <option value="">All</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button id="applyFiltersBtn">Apply Filters</button>
+          <button id="clearFiltersBtn" class="secondary">Clear Filters</button>
+          <button id="exportPdfBtn" class="secondary">Download PDF</button>
+          <button id="backToDashboardBtn" class="secondary">Back to Dashboard</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Report Results</div>
+        <div id="reportSummaryBanner" class="form-message">No filters applied.</div>
+
+        <div class="lines-table-wrap">
+          <table class="lines-table">
+            <thead>
+              <tr>
+                <th>Incident No</th>
+                <th>Type</th>
+                <th>Business Area</th>
+                <th>Title</th>
+                <th>Level</th>
+                <th>Nature</th>
+                <th>Status</th>
+                <th>Incident Date Time</th>
+                <th>Created On</th>
+                <th>Open</th>
+              </tr>
+            </thead>
+            <tbody id="reportsTableBody">
+              <tr>
+                <td colspan="10">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card">
+          <div class="page-loader-spinner"></div>
+          <div id="pageLoaderText" class="page-loader-text">Loading reports...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/core/app.js"></script>
+  <script src="/js/core/auth.js"></script>
+  <script src="/js/pages/reports.js"></script>
+</body>
+</html>

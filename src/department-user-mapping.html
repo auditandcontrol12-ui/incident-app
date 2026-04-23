@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Department User Mapping - Incident Reporting Portal</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="top-hero">
+      <div>
+        <span class="hero-badge">Administration</span>
+        <h1>Department User Mapping</h1>
+        <div class="page-subtitle">
+          Map users to incident departments and define responders and department heads.
+        </div>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <div class="card">
+        <div class="section-title">Create / Edit Mapping</div>
+
+        <div class="form-grid">
+          <div class="field-block">
+            <label for="departmentCode">Department</label>
+            <select id="departmentCode">
+              <option value="">Select Department</option>
+            </select>
+          </div>
+
+          <div class="field-block">
+            <label for="userId">User</label>
+            <select id="userId">
+              <option value="">Select User</option>
+            </select>
+          </div>
+
+          <div class="field-block">
+            <label class="inline-check">
+              <input type="checkbox" id="isResponder" checked />
+              Responder
+            </label>
+          </div>
+
+          <div class="field-block">
+            <label class="inline-check">
+              <input type="checkbox" id="isDepartmentHead" />
+              Department Head
+            </label>
+          </div>
+
+          <div class="field-block">
+            <label class="inline-check">
+              <input type="checkbox" id="isActive" checked />
+              Active
+            </label>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button id="saveMappingBtn">Save Mapping</button>
+          <button id="clearFormBtn" class="secondary">Clear</button>
+          <button id="backToDashboardBtn" class="secondary">Back to Dashboard</button>
+        </div>
+
+        <p id="formMessage" class="form-message"></p>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Department User Mappings</div>
+        <div class="lines-table-wrap">
+          <table class="lines-table">
+            <thead>
+              <tr>
+                <th>Department</th>
+                <th>User</th>
+                <th>Email</th>
+                <th>Responder</th>
+                <th>Department Head</th>
+                <th>Active</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="mappingTableBody">
+              <tr>
+                <td colspan="7">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card">
+          <div class="page-loader-spinner"></div>
+          <div id="pageLoaderText" class="page-loader-text">Loading department user mapping...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/core/app.js"></script>
+  <script src="/js/core/auth.js"></script>
+  <script src="/js/pages/department-user-mapping.js"></script>
+</body>
+</html>

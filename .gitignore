@@ -1,0 +1,13 @@
+node_modules/
+api/node_modules/
+local.settings.json
+api/local.settings.json
+.vscode/
+.env
+.env.*
+dist/
+build/
+*.log
+__azurite_db_*.json
+AzuriteConfig
+api/local.settings.json

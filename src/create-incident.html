@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Incident - Incident Reporting Portal</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="top-hero">
+      <div>
+        <span class="hero-badge">Incident Intake</span>
+        <h1 id="pageTitle">Create Incident</h1>
+        <div class="page-subtitle" id="pageSubtitle">
+          Record a new incident in the required company format with reporting, action, and evidence details.
+        </div>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <div class="card status-card">
+        <div class="section-title">Current Context</div>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <div class="label">User</div>
+            <div class="value" id="currentUserName">-</div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Email</div>
+            <div class="value" id="currentUserEmail">-</div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Role</div>
+            <div class="value" id="currentUserRole">-</div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Selected Area</div>
+            <div class="value" id="currentAreaName">-</div>
+          </div>
+        </div>
+      </div>
+
+      <form id="incidentForm" class="page-stack">
+        <div class="card">
+          <div class="section-title">Incident Header</div>
+          <div class="form-grid">
+            <div class="field-block">
+              <label for="incidentSerialNo">Incident Serial No</label>
+              <input type="text" id="incidentSerialNo" placeholder="Auto-generated on save/submit" readonly />
+            </div>
+
+            <div class="field-block">
+              <label for="incidentDateTime">Incident Date : Incident Time</label>
+              <input type="datetime-local" id="incidentDateTime" required />
+            </div>
+
+            <div class="field-block">
+              <label for="reportingDateTime">Reporting Date Time</label>
+              <input type="datetime-local" id="reportingDateTime" required />
+            </div>
+
+            <div class="field-block">
+              <label for="incidentType">Incident Type</label>
+              <select id="incidentType" required>
+                <option value="">Select Incident Type</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="levelOfIncident">Level of Incident</label>
+              <select id="levelOfIncident" required>
+                <option value="">Select Level of Incident</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="levelOfIncidentOther" class="sub-label">If Other, Specify</label>
+              <input type="text" id="levelOfIncidentOther" maxlength="250" placeholder="Specify level of incident" style="display:none;" />
+            </div>
+
+            <div class="field-block">
+              <label for="natureOfIncident">Nature of Incident</label>
+              <select id="natureOfIncident" required>
+                <option value="">Select Nature of Incident</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="natureOfIncidentOther" class="sub-label">If Other, Specify</label>
+              <input type="text" id="natureOfIncidentOther" maxlength="250" placeholder="Specify nature of incident" style="display:none;" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">People & Reporting</div>
+          <div class="form-grid">
+            <div class="field-block">
+              <label for="observedBy">Observed By</label>
+              <select id="observedBy" required>
+                <option value="">Select Observed By</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="observedByOther" class="sub-label">If Other, Specify</label>
+              <input type="text" id="observedByOther" maxlength="250" placeholder="Specify observed by" style="display:none;" />
+            </div>
+
+            <div class="field-block">
+              <label for="reportedBy">Reported By</label>
+              <select id="reportedBy" required>
+                <option value="">Select Reported By</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="reportedByOther" class="sub-label">If Other, Specify</label>
+              <input type="text" id="reportedByOther" maxlength="250" placeholder="Specify reported by" style="display:none;" />
+            </div>
+
+            <div class="field-block">
+              <label for="reportedTo">Reported To</label>
+              <select id="reportedTo" required>
+                <option value="">Select Reported To</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="reportedToOther" class="sub-label">If Other, Specify</label>
+              <input type="text" id="reportedToOther" maxlength="250" placeholder="Specify reported to" style="display:none;" />
+            </div>
+
+            <div class="field-block">
+              <label for="responsibleDepartmentHead">Responsible Department Head</label>
+              <select id="responsibleDepartmentHead" required>
+                <option value="">Select Responsible Department Head</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="responsibleDepartmentHeadOther" class="sub-label">If Other, Specify</label>
+              <input type="text" id="responsibleDepartmentHeadOther" maxlength="250" placeholder="Specify responsible department head" style="display:none;" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">Incident Details</div>
+          <div class="form-grid">
+            <div class="field-block">
+              <label for="incidentLocation">Incident Location</label>
+              <select id="incidentLocation" required>
+                <option value="">Select Incident Location</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="incidentLocationOther" class="sub-label">If Other, Specify</label>
+              <input type="text" id="incidentLocationOther" maxlength="250" placeholder="Specify incident location" style="display:none;" />
+            </div>
+
+            <div class="field-block" style="grid-column: 1 / -1;">
+              <label for="incidentTitle">Incident Title</label>
+              <input type="text" id="incidentTitle" maxlength="500" required placeholder="Enter incident title" />
+            </div>
+
+            <div class="field-block" style="grid-column: 1 / -1;">
+              <label for="incidentDescription">Incident Description</label>
+              <textarea id="incidentDescription" required placeholder="Describe the incident in detail"></textarea>
+            </div>
+
+            <div class="field-block" style="grid-column: 1 / -1;">
+              <label for="natureVolumeOfLoss">Nature &amp; Volume of Loss</label>
+              <textarea id="natureVolumeOfLoss" required placeholder="Describe the nature and volume of loss"></textarea>
+            </div>
+
+            <div class="field-block" style="grid-column: 1 / -1;">
+              <label for="contributingFactors">Contributing Factors</label>
+              <textarea id="contributingFactors" required placeholder="Enter contributing factors"></textarea>
+            </div>
+
+            <div class="field-block" style="grid-column: 1 / -1;">
+              <label for="rootCause">Root Cause</label>
+              <textarea id="rootCause" required placeholder="Enter root cause"></textarea>
+            </div>
+
+            <div class="field-block" style="grid-column: 1 / -1;">
+              <label for="immediateActionTaken">Immediate Action Taken</label>
+              <textarea id="immediateActionTaken" required placeholder="Enter immediate action taken"></textarea>
+            </div>
+
+            <div class="field-block" style="grid-column: 1 / -1;">
+              <label for="auditorConclusion">Auditor Conclusion</label>
+              <textarea id="auditorConclusion" required placeholder="Enter auditor conclusion"></textarea>
+            </div>
+
+            <div class="field-block" style="grid-column: 1 / -1;">
+              <label for="sceneClearanceWorkResume">Incident Scene Clearance &amp; Work Resume</label>
+              <textarea id="sceneClearanceWorkResume" required placeholder="Enter incident scene clearance and work resume details"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">Escalation & Immediate Action</div>
+          <div class="form-grid">
+            <div class="field-block">
+              <label for="requiresImmediateAction">Requires Immediate Action</label>
+              <label class="switch">
+                <input type="checkbox" id="requiresImmediateAction" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="field-block">
+              <label for="furtherEscalationRequired">Further Escalation Required</label>
+              <label class="switch">
+                <input type="checkbox" id="furtherEscalationRequired" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+
+          <div id="immediateActionSection" class="form-grid" style="margin-top:20px; display:none;">
+            <div class="field-block">
+              <label for="immediateActionDepartment">Immediate Action Department</label>
+              <select id="immediateActionDepartment">
+                <option value="">Select Immediate Action Department</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="immediateActionDepartmentOther" class="sub-label">If Other, Specify</label>
+              <input type="text" id="immediateActionDepartmentOther" maxlength="250" placeholder="Specify immediate action department" style="display:none;" />
+            </div>
+
+            <div class="field-block">
+              <label for="responsibleUser">Responsible User</label>
+              <select id="responsibleUser">
+                <option value="">Select Responsible User</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="responsibleUserOther" class="sub-label">If Other, Specify</label>
+              <input type="text" id="responsibleUserOther" maxlength="250" placeholder="Specify responsible user" style="display:none;" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+  <div class="section-title">Objective Evidence</div>
+  <div class="form-grid">
+    <div class="field-block" style="grid-column: 1 / -1;">
+      <label for="objectiveEvidence">Upload Objective Evidence</label>
+      <input type="file" id="objectiveEvidence" accept="image/*,.pdf" capture="environment" multiple />
+      <div class="field-hint">
+        Allowed: images and PDF only. Maximum 5 files total. Keep total upload size controlled in validation.
+      </div>
+    </div>
+
+    <div class="field-block" style="grid-column: 1 / -1;">
+      <div id="objectiveEvidenceInfo" class="form-message">No files selected.</div>
+    </div>
+
+    <div class="field-block" style="grid-column: 1 / -1;">
+      <div id="existingEvidenceWrap" style="display:none;">
+        <div class="section-title" style="margin-bottom:10px;">Existing Evidence</div>
+        <div id="existingEvidenceList" class="evidence-list"></div>
+      </div>
+    </div>
+
+    <div class="field-block" style="grid-column: 1 / -1;">
+      <div id="newEvidenceWrap">
+        <div class="section-title" style="margin-bottom:10px;">New Evidence</div>
+        <div id="objectiveEvidenceList" class="evidence-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="card">
+          <div class="section-title">Submission</div>
+          <div class="action-row">
+            <button type="submit" id="submitIncidentBtn">Submit Incident</button>
+            <button type="button" id="saveDraftBtn" class="secondary">Save Draft</button>
+            <button type="button" id="backToDashboardBtn" class="secondary">Back to Dashboard</button>
+          </div>
+          <p id="formMessage" class="form-message"></p>
+        </div>
+      </form>
+
+      <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card">
+          <div class="page-loader-spinner"></div>
+          <div id="pageLoaderText" class="page-loader-text">Loading incident form...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/core/app.js"></script>
+  <script src="/js/core/auth.js"></script>
+  <script src="/js/pages/create-incident.js"></script>
+</body>
+</html>

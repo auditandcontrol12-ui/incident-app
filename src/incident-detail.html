@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Incident Detail - Incident Reporting Portal</title>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="top-hero">
+      <div>
+        <span class="hero-badge">Incident Detail</span>
+        <h1>Report Detail</h1>
+        <div class="page-subtitle">
+          Review the selected incident or observation with reporting details, evidence, comments, and status history.
+        </div>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <div class="card">
+        <div class="section-title">Header</div>
+        <div class="summary-grid">
+          <div class="summary-item"><div class="label">Incident No</div><div class="value" id="incidentNumber">-</div></div>
+          <div class="summary-item"><div class="label">Type</div><div class="value" id="incidentType">-</div></div>
+          <div class="summary-item"><div class="label">Business Area</div><div class="value" id="businessArea">-</div></div>
+          <div class="summary-item"><div class="label">Status</div><div class="value" id="statusName">-</div></div>
+          <div class="summary-item"><div class="label">Level of Incident</div><div class="value" id="levelOfIncidentName">-</div></div>
+          <div class="summary-item"><div class="label">Nature of Incident</div><div class="value" id="natureOfIncidentName">-</div></div>
+          <div class="summary-item"><div class="label">Reported By</div><div class="value" id="reportedBy">-</div></div>
+          <div class="summary-item"><div class="label">Incident Date Time</div><div class="value" id="incidentDateTime">-</div></div>
+          <div class="summary-item"><div class="label">Reporting Date Time</div><div class="value" id="reportingDateTime">-</div></div>
+          <div class="summary-item"><div class="label">Incident Location</div><div class="value" id="incidentLocationName">-</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">People & Reporting</div>
+        <div class="summary-grid">
+          <div class="summary-item"><div class="label">Observed By</div><div class="value" id="observedByName">-</div></div>
+          <div class="summary-item"><div class="label">Reported By</div><div class="value" id="reportedByEntryName">-</div></div>
+          <div class="summary-item"><div class="label">Reported To</div><div class="value" id="reportedToName">-</div></div>
+          <div class="summary-item"><div class="label">Responsible Department Head</div><div class="value" id="responsibleDepartmentHeadName">-</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Incident Details</div>
+        <div class="form-grid-1">
+          <div class="field-block">
+            <label>Incident Title</label>
+            <div id="titleText" class="workspace-text">-</div>
+          </div>
+
+          <div class="field-block">
+            <label>Incident Description</label>
+            <div id="descriptionText" class="workspace-text">-</div>
+          </div>
+
+          <div class="field-block">
+            <label>Nature &amp; Volume of Loss</label>
+            <div id="natureVolumeOfLossText" class="workspace-text">-</div>
+          </div>
+
+          <div class="field-block">
+            <label>Contributing Factors</label>
+            <div id="contributingFactorsText" class="workspace-text">-</div>
+          </div>
+
+          <div class="field-block">
+            <label>Root Cause</label>
+            <div id="rootCauseText" class="workspace-text">-</div>
+          </div>
+
+          <div class="field-block">
+            <label>Immediate Action Taken</label>
+            <div id="immediateActionTakenText" class="workspace-text">-</div>
+          </div>
+
+          <div class="field-block">
+            <label>Auditor Conclusion</label>
+            <div id="auditorConclusionText" class="workspace-text">-</div>
+          </div>
+
+          <div class="field-block">
+            <label>Incident Scene Clearance &amp; Work Resume</label>
+            <div id="sceneClearanceWorkResumeText" class="workspace-text">-</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Escalation & Immediate Action</div>
+        <div class="summary-grid">
+          <div class="summary-item"><div class="label">Requires Immediate Action</div><div class="value" id="requiresImmediateActionText">-</div></div>
+          <div class="summary-item"><div class="label">Further Escalation Required</div><div class="value" id="furtherEscalationRequiredText">-</div></div>
+          <div class="summary-item"><div class="label">Immediate Action Department</div><div class="value" id="immediateActionDepartmentName">-</div></div>
+          <div class="summary-item"><div class="label">Responsible User</div><div class="value" id="responsibleUserName">-</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Objective Evidence</div>
+        <div id="attachmentsContainer" class="evidence-list"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Comments</div>
+        <div id="commentsContainer" class="page-stack"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Status History</div>
+        <div class="lines-table-wrap">
+          <table class="lines-table">
+            <thead>
+              <tr>
+                <th>Action On</th>
+                <th>Action Type</th>
+                <th>Old Status</th>
+                <th>New Status</th>
+                <th>Action By</th>
+                <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody id="statusLogBody">
+              <tr><td colspan="6">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="action-row">
+          <button id="backBtn" class="secondary">Back</button>
+        </div>
+      </div>
+
+      <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card">
+          <div class="page-loader-spinner"></div>
+          <div id="pageLoaderText" class="page-loader-text">Loading detail...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/core/app.js"></script>
+  <script src="/js/core/auth.js"></script>
+  <script src="/js/pages/incident-detail.js"></script>
+</body>
+</html>

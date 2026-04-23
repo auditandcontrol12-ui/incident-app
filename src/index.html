@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Incident Reporting Portal</title>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-shell">
+    <div class="auth-brand-panel">
+      <div class="brand-top">
+        <img src="/assets/Logo.png" alt="Company Logo" class="brand-logo" />
+        <div class="brand-meta">
+          <div class="brand-kicker">Incident Management</div>
+          <h1>Incident Reporting Portal</h1>
+          <p class="brand-subtitle">Secure internal reporting for operational incidents and observations</p>
+        </div>
+      </div>
+
+      <div class="data-visual">
+        <div class="data-side data-raw">
+          <div class="data-chip">Incident Raised</div>
+          <div class="data-chip">Severity Logged</div>
+          <div class="data-chip">Ownership Assigned</div>
+          <div class="data-chip">Resolution Tracked</div>
+        </div>
+
+        <div class="data-flow">
+          <span class="flow-dot"></span>
+          <span class="flow-line"></span>
+          <span class="flow-dot"></span>
+          <span class="flow-line"></span>
+          <span class="flow-dot"></span>
+        </div>
+
+        <div class="data-side data-analytics">
+          <div class="analytics-card tall">
+            <div class="mini-title">Incident Visibility</div>
+            <div class="mini-bars">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="analytics-card">
+            <div class="mini-title">Control Review</div>
+            <div class="mini-grid">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="analytics-card">
+            <div class="mini-title">Current Status</div>
+            <div class="mini-pill">Monitored</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer-box">
+        <div class="disclaimer-title">Confidentiality Notice</div>
+        <p>
+          This portal is for authorized internal reporting only. Information submitted through this system may include
+          operational incidents, control failures, safety observations, or process exceptions and must be handled with care.
+        </p>
+      </div>
+    </div>
+
+    <div class="auth-form-panel">
+      <div class="auth-card">
+        <div class="auth-card-header">
+          <div class="auth-eyebrow">Secure Access</div>
+          <h2>Login with Email OTP</h2>
+          <p>Enter your registered company email to receive a one-time password.</p>
+        </div>
+
+        <form id="loginForm" class="auth-form">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="name@company.com" required />
+          <button type="submit">Send OTP</button>
+        </form>
+
+        <p id="msg" class="form-message"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (async () => {
+      try {
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.get("logged_out") === "1") {
+          return;
+        }
+
+        const res = await fetch("/api/getMe", {
+          method: "GET",
+          credentials: "include",
+          cache: "no-store"
+        });
+
+        if (!res.ok) return;
+
+        const data = await res.json();
+        if (data.authenticated) {
+          window.location.replace("/dashboard.html");
+        }
+      } catch (e) {
+      }
+    })();
+  </script>
+
+  <script src="/js/core/login.js"></script>
+</body>
+</html>

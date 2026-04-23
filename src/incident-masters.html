@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Incident Masters - Incident Reporting Portal</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="top-hero">
+      <div>
+        <span class="hero-badge">Administration</span>
+        <h1>Incident Masters</h1>
+        <div class="page-subtitle">
+          Manage selectable values used across incident creation and workflow routing.
+        </div>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <div class="card">
+        <div class="section-title">Master Setup</div>
+
+        <div class="form-grid">
+          <div class="field-block">
+            <label for="masterType">Master Type</label>
+            <select id="masterType">
+              <option value="IncidentType">Incident Type</option>
+              <option value="LevelOfIncident">Level of Incident</option>
+              <option value="NatureOfIncident">Nature of Incident</option>
+              <option value="IncidentLocation">Incident Location</option>
+              <option value="IncidentDepartment">Incident Department</option>
+            </select>
+          </div>
+
+          <div class="field-block">
+            <label for="masterCode">Code</label>
+            <input type="text" id="masterCode" maxlength="100" placeholder="Code" />
+          </div>
+
+          <div class="field-block">
+            <label for="masterName">Name</label>
+            <input type="text" id="masterName" maxlength="200" placeholder="Name" />
+          </div>
+
+          <div class="field-block">
+            <label for="masterDescription">Description</label>
+            <input type="text" id="masterDescription" maxlength="1000" placeholder="Description" />
+          </div>
+
+          <div class="field-block">
+            <label for="sortOrder">Sort Order</label>
+            <input type="number" id="sortOrder" value="0" />
+          </div>
+
+          <div class="field-block">
+            <label class="inline-check">
+              <input type="checkbox" id="isActive" checked />
+              Active
+            </label>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button id="saveMasterBtn">Save</button>
+          <button id="clearFormBtn" class="secondary">Clear</button>
+          <button id="backToDashboardBtn" class="secondary">Back to Dashboard</button>
+        </div>
+
+        <p id="formMessage" class="form-message"></p>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Master Items</div>
+        <div class="lines-table-wrap">
+          <table class="lines-table">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Sort Order</th>
+                <th>Active</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="masterTableBody">
+              <tr>
+                <td colspan="6">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card">
+          <div class="page-loader-spinner"></div>
+          <div id="pageLoaderText" class="page-loader-text">Loading incident masters...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/core/app.js"></script>
+  <script src="/js/core/auth.js"></script>
+  <script src="/js/pages/incident-masters.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Observation - Incident Reporting Portal</title>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="top-hero">
+      <div>
+        <span class="hero-badge">Observation Intake</span>
+        <h1>Create Observation</h1>
+        <div class="page-subtitle">
+          Record an observation, near miss, or preventive note for the selected business area.
+        </div>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <div class="card status-card">
+        <div class="section-title">Current Context</div>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <div class="label">User</div>
+            <div class="value" id="currentUserName">-</div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Email</div>
+            <div class="value" id="currentUserEmail">-</div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Role</div>
+            <div class="value" id="currentUserRole">-</div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Selected Area</div>
+            <div class="value" id="currentAreaName">-</div>
+          </div>
+        </div>
+      </div>
+
+      <form id="observationForm" class="page-stack">
+       <div class="card">
+  <div class="section-title">Observation Details</div>
+  <div class="form-grid">
+    <div class="field-block">
+      <label for="incidentType">Report Type</label>
+      <select id="incidentType" required></select>
+    </div>
+
+    <div class="field-block">
+      <label for="severity">Severity</label>
+      <select id="severity" required></select>
+    </div>
+
+    <div class="field-block">
+      <label for="category">Category</label>
+      <select id="category" required></select>
+    </div>
+
+    <div class="field-block">
+      <label for="priority">Priority</label>
+      <select id="priority" required></select>
+    </div>
+
+    <div class="field-block">
+      <label for="incidentDateTime">Observation Date Time</label>
+      <input type="datetime-local" id="incidentDateTime" required />
+    </div>
+
+    <div class="field-block">
+      <label for="locationText">Location</label>
+      <input type="text" id="locationText" maxlength="500" placeholder="Enter location" />
+    </div>
+
+    <div class="field-block" style="grid-column: 1 / -1;">
+      <label for="title">Title</label>
+      <input type="text" id="title" maxlength="500" required placeholder="Short title of the observation" />
+    </div>
+
+    <div class="field-block" style="grid-column: 1 / -1;">
+      <label for="description">Description</label>
+      <textarea id="description" required placeholder="Describe the observation, potential risk, and suggested follow-up"></textarea>
+    </div>
+
+    <div class="field-block">
+      <label>
+        <input type="checkbox" id="isAnonymous" style="width:auto; margin-right:8px;" />
+        Anonymous Report
+      </label>
+    </div>
+
+    <div class="field-block">
+      <label>
+        <input type="checkbox" id="isConfidential" style="width:auto; margin-right:8px;" />
+        Confidential
+      </label>
+    </div>
+
+    <div class="field-block">
+      <label>
+        <input type="checkbox" id="requiresImmediateAction" style="width:auto; margin-right:8px;" />
+        Requires Immediate Action
+      </label>
+    </div>
+  </div>
+</div></div>
+
+        <div class="card">
+          <div class="section-title">Submission</div>
+          <div class="action-row">
+  <button type="submit" id="submitObservationBtn">Submit Observation</button>
+  <button type="button" id="saveDraftBtn" class="secondary">Save Draft</button>
+  <button type="button" id="backToDashboardBtn" class="secondary">Back to Dashboard</button>
+</div>
+          <p id="formMessage" class="form-message"></p>
+        </div>
+      </form>
+
+      <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card">
+          <div class="page-loader-spinner"></div>
+          <div id="pageLoaderText" class="page-loader-text">Loading observation form...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/core/app.js"></script>
+  <script src="/js/core/auth.js"></script>
+  <script src="/js/pages/create-observation.js"></script>
+</body>
+</html>

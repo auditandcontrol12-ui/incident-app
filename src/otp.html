@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify OTP - Application</title>
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-shell">
+    <div class="auth-brand-panel">
+      <div class="brand-top">
+        <img src="/assets/Logo.jpeg" alt="Application Logo" class="brand-logo" />
+        <div class="brand-meta">
+          <div class="brand-kicker">Application Template</div>
+          <h1>Internal Business Application</h1>
+          <p class="brand-subtitle">Reusable starter built for internal workflows</p>
+        </div>
+      </div>
+
+      <div class="data-visual">
+        <div class="data-side data-raw">
+          <div class="data-chip">Request</div>
+          <div class="data-chip">Email OTP</div>
+          <div class="data-chip">Validation</div>
+        </div>
+
+        <div class="data-flow">
+          <span class="flow-dot"></span>
+          <span class="flow-line"></span>
+          <span class="flow-dot"></span>
+          <span class="flow-line"></span>
+          <span class="flow-dot"></span>
+        </div>
+
+        <div class="data-side data-analytics">
+          <div class="analytics-card tall">
+            <div class="mini-title">Verified Access</div>
+            <div class="mini-bars">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="analytics-card">
+            <div class="mini-title">Session</div>
+            <div class="mini-pill">Authorized</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer-box">
+        <div class="disclaimer-title">Confidentiality Notice</div>
+        <p>
+          Access to this application is restricted to authorized users only.
+          OTP verification is used to confirm identity for internal usage.
+        </p>
+      </div>
+    </div>
+
+    <div class="auth-form-panel">
+      <div class="auth-card">
+        <div class="auth-card-header">
+          <div class="auth-eyebrow">Verification</div>
+          <h2>Enter One-Time Password</h2>
+          <p>Use the OTP sent to your registered email address.</p>
+        </div>
+
+        <form id="otpForm" class="auth-form">
+          <label for="otp">OTP</label>
+          <input type="text" id="otp" maxlength="6" placeholder="Enter 6-digit OTP" required />
+          <button type="submit">Verify OTP</button>
+        </form>
+
+        <p id="msg" class="form-message"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/core/otp.js"></script>
+</body>
+</html>

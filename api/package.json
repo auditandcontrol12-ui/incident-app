@@ -1,0 +1,12 @@
+{
+  "name": "app-template-api",
+  "version": "1.0.0",
+  "main": "*/index.js",
+  "dependencies": {
+    "@azure/functions": "^4.5.0",
+    "@azure/storage-blob": "^12.31.0",
+    "busboy": "^1.6.0",
+    "mssql": "^11.0.1",
+    "nodemailer": "^8.0.5"
+  }
+}

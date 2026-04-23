@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Drafts - Incident Reporting Portal</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="top-hero">
+      <div>
+        <span class="hero-badge">Draft Workbench</span>
+        <h1>My Drafts</h1>
+        <div class="page-subtitle">
+          Review incident and observation drafts saved by you.
+        </div>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <div class="card">
+        <div class="section-title">My Draft Reports</div>
+        <div class="lines-table-wrap">
+          <table class="lines-table">
+            <thead>
+  <tr>
+    <th>Draft No</th>
+    <th>Type</th>
+    <th>Business Area</th>
+    <th>Title</th>
+    <th>Level</th>
+    <th>Nature</th>
+    <th>Created On</th>
+  </tr>
+</thead>
+            <tbody id="draftsTableBody">
+              <tr>
+                <td colspan="7">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="action-row" style="margin-top:16px;">
+          <button id="backToDashboardBtn" class="secondary">Back to Dashboard</button>
+        </div>
+      </div>
+
+      <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card">
+          <div class="page-loader-spinner"></div>
+          <div id="pageLoaderText" class="page-loader-text">Loading drafts...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/core/app.js"></script>
+  <script src="/js/core/auth.js"></script>
+  <script src="/js/pages/my-drafts.js"></script>
+</body>
+</html>
